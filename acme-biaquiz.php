@@ -415,12 +415,12 @@ class ACME_BIAQuiz {
 
         $slug = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
         if (empty($slug)) {
-            wp_send_json_error('Catégorie invalide');
+            wp_send_json_error(__('Catégorie invalide', 'acme-biaquiz'));
         }
 
         $term = get_term_by('slug', $slug, 'biaquiz_category');
         if (!$term) {
-            wp_send_json_error('Catégorie introuvable');
+            wp_send_json_error(__('Catégorie introuvable', 'acme-biaquiz'));
         }
 
         $args = array(
