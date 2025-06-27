@@ -30,6 +30,8 @@ class ACME_BIAQuiz {
         add_action('wp_ajax_biaquiz_export', array($this, 'handle_export'));
         add_action('wp_ajax_biaquiz_get_quiz', array($this, 'get_quiz_data'));
         add_action('wp_ajax_nopriv_biaquiz_get_quiz', array($this, 'get_quiz_data'));
+        add_action('wp_ajax_biaquiz_get_category_quizzes', array($this, 'get_category_quizzes'));
+        add_action('wp_ajax_nopriv_biaquiz_get_category_quizzes', array($this, 'get_category_quizzes'));
         add_shortcode('biaquiz', array($this, 'shortcode'));
         
         register_activation_hook(__FILE__, array($this, 'activate'));
@@ -331,6 +333,54 @@ class ACME_BIAQuiz {
             'id' => $quiz_id,
             'title' => $quiz->post_title,
             'questions' => $questions
+        ));
+    }
+
+    public function get_category_quizzes() {
+        check_ajax_referer('biaquiz_nonce', 'nonce');
+
+        $slug = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
+        if (empty($slug)) {
+            wp_send_json_error('Catégorie invalide');
+        }
+
+        $term = get_term_by('slug', $slug, 'biaquiz_category');
+        if (!$term) {
+            wp_send_json_error('Catégorie introuvable');
+        }
+
+        $args = array(
+            'post_type' => 'biaquiz',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'biaquiz_category',
+                    'field' => 'slug',
+                    'terms' => $slug
+                )
+            ),
+            'orderby' => 'date',
+            'order' => 'ASC'
+        );
+
+        $posts = get_posts($args);
+        $quizzes = array();
+
+        foreach ($posts as $post) {
+            $quizzes[] = array(
+                'id' => $post->ID,
+                'title' => $post->post_title,
+                'created_at' => $post->post_date
+            );
+        }
+
+        wp_send_json_success(array(
+            'category' => array(
+                'slug' => $term->slug,
+                'name' => $term->name,
+                'description' => $term->description
+            ),
+            'quizzes' => $quizzes
         ));
     }
     
