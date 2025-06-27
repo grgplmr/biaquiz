@@ -89,7 +89,7 @@ class ACME_BIAQuiz {
     }
     
     public function enqueue_scripts() {
-        wp_enqueue_script('acme-biaquiz-app', ACME_BIAQUIZ_PLUGIN_URL . 'assets/js/biaquiz-app.js', array('jquery'), ACME_BIAQUIZ_VERSION, true);
+        wp_enqueue_script('acme-biaquiz-app', ACME_BIAQUIZ_PLUGIN_URL . 'assets/js/biaquiz-app.js', array(), ACME_BIAQUIZ_VERSION, true);
         wp_enqueue_style('acme-biaquiz-style', ACME_BIAQUIZ_PLUGIN_URL . 'assets/css/biaquiz-style.css', array(), ACME_BIAQUIZ_VERSION);
         
         wp_localize_script('acme-biaquiz-app', 'biaquiz_ajax', array(
