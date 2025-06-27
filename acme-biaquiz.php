@@ -176,8 +176,9 @@ class ACME_BIAQuiz {
     }
     
     private function import_csv($category, $csv_data) {
-        $lines = explode("\n", $csv_data);
-        $header = str_getcsv(array_shift($lines));
+        // Split lines in a cross-platform way and trim possible CR characters
+        $lines = preg_split("/\r\n|\n|\r/", trim($csv_data));
+        $header = str_getcsv(trim(array_shift($lines)));
         
         if (!$this->validate_csv_header($header)) {
             return array('success' => false, 'message' => __('Format CSV invalide', 'acme-biaquiz'));
@@ -185,7 +186,8 @@ class ACME_BIAQuiz {
         
         $questions = array();
         foreach ($lines as $index => $line) {
-            if (empty(trim($line))) {
+            $line = trim($line);
+            if ($line === '') {
                 continue;
             }
 
