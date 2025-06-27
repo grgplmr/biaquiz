@@ -39,22 +39,23 @@ class ACME_BIAQuiz {
     public function init() {
         $this->create_post_types();
         $this->create_taxonomies();
+        load_plugin_textdomain('acme-biaquiz', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
     
     public function create_post_types() {
         // Quiz Post Type
         register_post_type('biaquiz', array(
             'labels' => array(
-                'name' => 'Quiz BIA',
-                'singular_name' => 'Quiz',
-                'add_new' => 'Ajouter un Quiz',
-                'add_new_item' => 'Ajouter un nouveau Quiz',
-                'edit_item' => 'Modifier le Quiz',
-                'new_item' => 'Nouveau Quiz',
-                'view_item' => 'Voir le Quiz',
-                'search_items' => 'Rechercher des Quiz',
-                'not_found' => 'Aucun quiz trouvé',
-                'not_found_in_trash' => 'Aucun quiz dans la corbeille'
+                'name' => __('Quiz BIA', 'acme-biaquiz'),
+                'singular_name' => __('Quiz', 'acme-biaquiz'),
+                'add_new' => __('Ajouter un Quiz', 'acme-biaquiz'),
+                'add_new_item' => __('Ajouter un nouveau Quiz', 'acme-biaquiz'),
+                'edit_item' => __('Modifier le Quiz', 'acme-biaquiz'),
+                'new_item' => __('Nouveau Quiz', 'acme-biaquiz'),
+                'view_item' => __('Voir le Quiz', 'acme-biaquiz'),
+                'search_items' => __('Rechercher des Quiz', 'acme-biaquiz'),
+                'not_found' => __('Aucun quiz trouvé', 'acme-biaquiz'),
+                'not_found_in_trash' => __('Aucun quiz dans la corbeille', 'acme-biaquiz')
             ),
             'public' => false,
             'show_ui' => true,
@@ -70,12 +71,12 @@ class ACME_BIAQuiz {
         // Quiz Categories
         register_taxonomy('biaquiz_category', 'biaquiz', array(
             'labels' => array(
-                'name' => 'Catégories BIA',
-                'singular_name' => 'Catégorie',
-                'add_new_item' => 'Ajouter une catégorie',
-                'edit_item' => 'Modifier la catégorie',
-                'update_item' => 'Mettre à jour la catégorie',
-                'search_items' => 'Rechercher des catégories'
+                'name' => __('Catégories BIA', 'acme-biaquiz'),
+                'singular_name' => __('Catégorie', 'acme-biaquiz'),
+                'add_new_item' => __('Ajouter une catégorie', 'acme-biaquiz'),
+                'edit_item' => __('Modifier la catégorie', 'acme-biaquiz'),
+                'update_item' => __('Mettre à jour la catégorie', 'acme-biaquiz'),
+                'search_items' => __('Rechercher des catégories', 'acme-biaquiz')
             ),
             'hierarchical' => true,
             'public' => false,
@@ -109,8 +110,8 @@ class ACME_BIAQuiz {
     
     public function admin_menu() {
         add_menu_page(
-            'ACME BIAQuiz',
-            'BIAQuiz',
+            __('ACME BIAQuiz', 'acme-biaquiz'),
+            __('BIAQuiz', 'acme-biaquiz'),
             'manage_options',
             'biaquiz-dashboard',
             array($this, 'admin_dashboard'),
@@ -120,24 +121,24 @@ class ACME_BIAQuiz {
         
         add_submenu_page(
             'biaquiz-dashboard',
-            'Tous les Quiz',
-            'Tous les Quiz',
+            __('Tous les Quiz', 'acme-biaquiz'),
+            __('Tous les Quiz', 'acme-biaquiz'),
             'manage_options',
             'edit.php?post_type=biaquiz'
         );
         
         add_submenu_page(
             'biaquiz-dashboard',
-            'Catégories',
-            'Catégories',
+            __('Catégories', 'acme-biaquiz'),
+            __('Catégories', 'acme-biaquiz'),
             'manage_options',
             'edit-tags.php?taxonomy=biaquiz_category&post_type=biaquiz'
         );
         
         add_submenu_page(
             'biaquiz-dashboard',
-            'Import/Export',
-            'Import/Export',
+            __('Import/Export', 'acme-biaquiz'),
+            __('Import/Export', 'acme-biaquiz'),
             'manage_options',
             'biaquiz-import-export',
             array($this, 'admin_import_export')
@@ -156,7 +157,7 @@ class ACME_BIAQuiz {
         check_ajax_referer('biaquiz_admin_nonce', 'nonce');
         
         if (!current_user_can('manage_options')) {
-            wp_die('Unauthorized');
+            wp_die(__('Unauthorized', 'acme-biaquiz'));
         }
         
         $category = sanitize_text_field($_POST['category']);
@@ -177,7 +178,7 @@ class ACME_BIAQuiz {
         $header = str_getcsv(array_shift($lines));
         
         if (!$this->validate_csv_header($header)) {
-            return array('success' => false, 'message' => 'Format CSV invalide');
+            return array('success' => false, 'message' => __('Format CSV invalide', 'acme-biaquiz'));
         }
         
         $questions = array();
@@ -196,7 +197,7 @@ class ACME_BIAQuiz {
         }
         
         if (count($questions) !== 20) {
-            return array('success' => false, 'message' => 'Un quiz doit contenir exactement 20 questions');
+            return array('success' => false, 'message' => __('Un quiz doit contenir exactement 20 questions', 'acme-biaquiz'));
         }
         
         return $this->create_quiz($category, $questions);
@@ -206,7 +207,7 @@ class ACME_BIAQuiz {
         $data = json_decode($json_data, true);
         
         if (!$data || !isset($data['questions']) || count($data['questions']) !== 20) {
-            return array('success' => false, 'message' => 'Format JSON invalide ou nombre de questions incorrect');
+            return array('success' => false, 'message' => __('Format JSON invalide ou nombre de questions incorrect', 'acme-biaquiz'));
         }
         
         return $this->create_quiz($category, $data['questions']);
@@ -224,7 +225,7 @@ class ACME_BIAQuiz {
         // Get category term
         $term = get_term_by('slug', $category, 'biaquiz_category');
         if (!$term) {
-            return array('success' => false, 'message' => 'Catégorie introuvable');
+            return array('success' => false, 'message' => __('Catégorie introuvable', 'acme-biaquiz'));
         }
         
         // Create quiz post
@@ -240,10 +241,10 @@ class ACME_BIAQuiz {
         
         if ($post_id) {
             wp_set_object_terms($post_id, $category, 'biaquiz_category');
-            return array('success' => true, 'message' => 'Quiz importé avec succès');
+            return array('success' => true, 'message' => __('Quiz importé avec succès', 'acme-biaquiz'));
         }
         
-        return array('success' => false, 'message' => 'Erreur lors de la création du quiz');
+        return array('success' => false, 'message' => __('Erreur lors de la création du quiz', 'acme-biaquiz'));
     }
     
     private function get_next_quiz_number($category) {
@@ -276,7 +277,7 @@ class ACME_BIAQuiz {
         check_ajax_referer('biaquiz_admin_nonce', 'nonce');
         
         if (!current_user_can('manage_options')) {
-            wp_die('Unauthorized');
+            wp_die(__('Unauthorized', 'acme-biaquiz'));
         }
         
         $category = sanitize_text_field($_POST['category']);
@@ -322,7 +323,7 @@ class ACME_BIAQuiz {
         $quiz = get_post($quiz_id);
         
         if (!$quiz || $quiz->post_type !== 'biaquiz') {
-            wp_send_json_error('Quiz introuvable');
+            wp_send_json_error(__('Quiz introuvable', 'acme-biaquiz'));
         }
         
         $questions = json_decode(get_post_meta($quiz_id, 'biaquiz_questions', true), true);
@@ -351,12 +352,36 @@ class ACME_BIAQuiz {
         
         // Create default categories
         $categories = array(
-            array('slug' => 'aerodynamics', 'name' => 'Aérodynamique et mécanique du vol', 'description' => 'Principes de vol, portance, traînée, facteurs de charge'),
-            array('slug' => 'aircraft', 'name' => 'Connaissance des aéronefs', 'description' => 'Structure, systèmes, motorisation, équipements'),
-            array('slug' => 'meteorology', 'name' => 'Météorologie', 'description' => 'Masses d\'air, nuages, phénomènes météorologiques'),
-            array('slug' => 'navigation', 'name' => 'Navigation, règlementation et sécurité', 'description' => 'Navigation, réglementation aérienne, sécurité des vols'),
-            array('slug' => 'history', 'name' => 'Histoire de l\'aéronautique et de l\'espace', 'description' => 'Pionniers, évolution technologique, conquête spatiale'),
-            array('slug' => 'english', 'name' => 'Anglais aéronautique', 'description' => 'Vocabulaire technique, phraséologie radio')
+            array(
+                'slug'        => 'aerodynamics',
+                'name'        => __('Aérodynamique et mécanique du vol', 'acme-biaquiz'),
+                'description' => __('Principes de vol, portance, traînée, facteurs de charge', 'acme-biaquiz'),
+            ),
+            array(
+                'slug'        => 'aircraft',
+                'name'        => __('Connaissance des aéronefs', 'acme-biaquiz'),
+                'description' => __('Structure, systèmes, motorisation, équipements', 'acme-biaquiz'),
+            ),
+            array(
+                'slug'        => 'meteorology',
+                'name'        => __('Météorologie', 'acme-biaquiz'),
+                'description' => __('Masses d\'air, nuages, phénomènes météorologiques', 'acme-biaquiz'),
+            ),
+            array(
+                'slug'        => 'navigation',
+                'name'        => __('Navigation, règlementation et sécurité', 'acme-biaquiz'),
+                'description' => __('Navigation, réglementation aérienne, sécurité des vols', 'acme-biaquiz'),
+            ),
+            array(
+                'slug'        => 'history',
+                'name'        => __('Histoire de l\'aéronautique et de l\'espace', 'acme-biaquiz'),
+                'description' => __('Pionniers, évolution technologique, conquête spatiale', 'acme-biaquiz'),
+            ),
+            array(
+                'slug'        => 'english',
+                'name'        => __('Anglais aéronautique', 'acme-biaquiz'),
+                'description' => __('Vocabulaire technique, phraséologie radio', 'acme-biaquiz'),
+            ),
         );
         
         foreach ($categories as $category) {

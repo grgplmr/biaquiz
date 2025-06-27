@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-27 08:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/quiz-frontend.php:10
+msgid "Chargement..."
+msgstr ""
+
+#: templates/quiz-frontend.php:19 acme-biaquiz.php:113
+msgid "ACME BIAQuiz"
+msgstr ""
+
+#: templates/quiz-frontend.php:20
+msgid "Entraînement au Brevet d'Initiation à l'Aéronautique"
+msgstr ""
+
+#: templates/quiz-frontend.php:26
+msgid "Préparez votre BIA efficacement"
+msgstr ""
+
+#: templates/quiz-frontend.php:27
+msgid ""
+"Entrainez-vous avec nos quiz thématiques interactifs. Aucune inscription "
+"requise, correction immédiate et répétition des erreurs jusqu'à la maîtrise "
+"parfaite."
+msgstr ""
+
+#: templates/quiz-frontend.php:33
+msgid "Catégories disponibles"
+msgstr ""
+
+#: templates/quiz-frontend.php:37
+msgid "Questions d'entraînement"
+msgstr ""
+
+#: templates/quiz-frontend.php:41
+msgid "Score requis pour valider"
+msgstr ""
+
+#: templates/quiz-frontend.php:46
+msgid "Choisissez votre domaine d'entraînement"
+msgstr ""
+
+#: templates/quiz-frontend.php:76
+msgid "quiz disponible"
+msgstr ""
+
+#: templates/quiz-frontend.php:76
+msgid "s"
+msgstr ""
+
+#: templates/quiz-frontend.php:77
+msgid "Commencer l'entraînement →"
+msgstr ""
+
+#: templates/quiz-frontend.php:85
+msgid "Comment ça marche ?"
+msgstr ""
+
+#: templates/quiz-frontend.php:87
+msgid "Choisissez une catégorie selon vos besoins de révision"
+msgstr ""
+
+#: templates/quiz-frontend.php:88
+msgid "Répondez aux 20 questions du quiz sélectionné"
+msgstr ""
+
+#: templates/quiz-frontend.php:89
+msgid "Reprenez les questions ratées jusqu'à obtenir 20/20"
+msgstr ""
+
+#: templates/quiz-frontend.php:93
+msgid "Avantages"
+msgstr ""
+
+#: templates/quiz-frontend.php:95
+msgid "✅ Accès immédiat sans inscription"
+msgstr ""
+
+#: templates/quiz-frontend.php:96
+msgid "✅ Correction et explication instantanées"
+msgstr ""
+
+#: templates/quiz-frontend.php:97
+msgid "✅ Répétition intelligente des erreurs"
+msgstr ""
+
+#: templates/quiz-frontend.php:98
+msgid "✅ Interface responsive et intuitive"
+msgstr ""
+
+#: templates/quiz-frontend.php:99
+msgid "✅ Contenu officiel conforme au BIA"
+msgstr ""
+
+#: templates/quiz-frontend.php:108
+msgid "Retour aux catégories"
+msgstr ""
+
+#: templates/quiz-frontend.php:125
+msgid "Retour"
+msgstr ""
+
+#: templates/quiz-frontend.php:137
+msgid "Question 1/20"
+msgstr ""
+
+#: templates/quiz-frontend.php:138
+msgid "vers 20/20"
+msgstr ""
+
+#: templates/quiz-frontend.php:143
+msgid "Mode révision : Reprise des questions incorrectes"
+msgstr ""
+
+#: templates/quiz-frontend.php:156
+msgid "Explication"
+msgstr ""
+
+#: templates/quiz-frontend.php:165
+msgid "Valider"
+msgstr ""
+
+#: templates/quiz-frontend.php:166
+msgid "Question suivante"
+msgstr ""
+
+#: templates/quiz-frontend.php:176
+msgid "Félicitations !"
+msgstr ""
+
+#: templates/quiz-frontend.php:177
+msgid "Vous avez terminé le quiz avec un score parfait"
+msgstr ""
+
+#: templates/quiz-frontend.php:181
+msgid "Score parfait !"
+msgstr ""
+
+#: templates/quiz-frontend.php:185
+msgid "Recommencer"
+msgstr ""
+
+#: templates/quiz-frontend.php:186
+msgid "Retour aux quiz"
+msgstr ""
+
+#: templates/admin-dashboard.php:10
+msgid "ACME BIAQuiz - Tableau de bord"
+msgstr ""
+
+#: templates/admin-dashboard.php:16
+msgid "Quiz disponibles"
+msgstr ""
+
+#: templates/admin-dashboard.php:21 acme-biaquiz.php:132 acme-biaquiz.php:133
+msgid "Catégories"
+msgstr ""
+
+#: templates/admin-dashboard.php:26
+msgid "Questions totales"
+msgstr ""
+
+#: templates/admin-dashboard.php:31
+msgid "Aperçu des catégories"
+msgstr ""
+
+#: templates/admin-dashboard.php:60
+msgid "Actions rapides"
+msgstr ""
+
+#: templates/admin-dashboard.php:64 templates/admin-import-export.php:12
+msgid "Importer un quiz"
+msgstr ""
+
+#: templates/admin-dashboard.php:65
+msgid "Téléversez vos quiz au format CSV ou JSON"
+msgstr ""
+
+#: templates/admin-dashboard.php:70
+msgid "Créer un quiz"
+msgstr ""
+
+#: templates/admin-dashboard.php:71
+msgid "Créez un nouveau quiz manuellement"
+msgstr ""
+
+#: templates/admin-dashboard.php:76
+msgid "Gérer les quiz"
+msgstr ""
+
+#: templates/admin-dashboard.php:77
+msgid "Voir et modifier tous les quiz existants"
+msgstr ""
+
+#: templates/admin-dashboard.php:83
+msgid "Utilisation"
+msgstr ""
+
+#: templates/admin-dashboard.php:84
+msgid ""
+"Pour afficher l'interface de quiz sur une page ou un article, utilisez le "
+"shortcode :"
+msgstr ""
+
+#: templates/admin-dashboard.php:87
+msgid "Vous pouvez également afficher une catégorie spécifique :"
+msgstr ""
+
+#: templates/admin-dashboard.php:90
+msgid "Ou un quiz spécifique :"
+msgstr ""
+
+#: templates/admin-import-export.php:8
+msgid "Import / Export des Quiz"
+msgstr ""
+
+#: templates/admin-import-export.php:16 acme-biaquiz.php:75
+msgid "Catégorie"
+msgstr ""
+
+#: templates/admin-import-export.php:19 templates/admin-import-export.php:72
+msgid "Sélectionner une catégorie"
+msgstr ""
+
+#: templates/admin-import-export.php:29
+msgid "Format"
+msgstr ""
+
+#: templates/admin-import-export.php:32
+msgid "CSV"
+msgstr ""
+
+#: templates/admin-import-export.php:35
+msgid "JSON"
+msgstr ""
+
+#: templates/admin-import-export.php:40
+msgid "Données"
+msgstr ""
+
+#: templates/admin-import-export.php:44
+msgid ""
+"Format CSV attendu : question,option1,option2,option3,option4,correct_answer,"
+"explanation"
+msgstr ""
+
+#: templates/admin-import-export.php:45
+msgid "Le quiz doit contenir exactement 20 questions."
+msgstr ""
+
+#: templates/admin-import-export.php:52
+msgid "Importer le quiz"
+msgstr ""
+
+#: templates/admin-import-export.php:57
+msgid "Exemple de format CSV"
+msgstr ""
+
+#: templates/admin-import-export.php:65
+msgid "Exporter des quiz"
+msgstr ""
+
+#: templates/admin-import-export.php:69
+msgid "Catégorie à exporter"
+msgstr ""
+
+#: templates/admin-import-export.php:84
+msgid "Exporter en CSV"
+msgstr ""
+
+#: acme-biaquiz.php:49
+msgid "Quiz BIA"
+msgstr ""
+
+#: acme-biaquiz.php:50
+msgid "Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:51
+msgid "Ajouter un Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:52
+msgid "Ajouter un nouveau Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:53
+msgid "Modifier le Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:54
+msgid "Nouveau Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:55
+msgid "Voir le Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:56
+msgid "Rechercher des Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:57
+msgid "Aucun quiz trouvé"
+msgstr ""
+
+#: acme-biaquiz.php:58
+msgid "Aucun quiz dans la corbeille"
+msgstr ""
+
+#: acme-biaquiz.php:74
+msgid "Catégories BIA"
+msgstr ""
+
+#: acme-biaquiz.php:76
+msgid "Ajouter une catégorie"
+msgstr ""
+
+#: acme-biaquiz.php:77
+msgid "Modifier la catégorie"
+msgstr ""
+
+#: acme-biaquiz.php:78
+msgid "Mettre à jour la catégorie"
+msgstr ""
+
+#: acme-biaquiz.php:79
+msgid "Rechercher des catégories"
+msgstr ""
+
+#: acme-biaquiz.php:114
+msgid "BIAQuiz"
+msgstr ""
+
+#: acme-biaquiz.php:124 acme-biaquiz.php:125
+msgid "Tous les Quiz"
+msgstr ""
+
+#: acme-biaquiz.php:140 acme-biaquiz.php:141
+msgid "Import/Export"
+msgstr ""
+
+#: acme-biaquiz.php:160 acme-biaquiz.php:280
+msgid "Unauthorized"
+msgstr ""
+
+#: acme-biaquiz.php:181
+msgid "Format CSV invalide"
+msgstr ""
+
+#: acme-biaquiz.php:200
+msgid "Un quiz doit contenir exactement 20 questions"
+msgstr ""
+
+#: acme-biaquiz.php:210
+msgid "Format JSON invalide ou nombre de questions incorrect"
+msgstr ""
+
+#: acme-biaquiz.php:228
+msgid "Catégorie introuvable"
+msgstr ""
+
+#: acme-biaquiz.php:244
+msgid "Quiz importé avec succès"
+msgstr ""
+
+#: acme-biaquiz.php:247
+msgid "Erreur lors de la création du quiz"
+msgstr ""
+
+#: acme-biaquiz.php:326
+msgid "Quiz introuvable"
+msgstr ""
+
+#: acme-biaquiz.php:357
+msgid "Aérodynamique et mécanique du vol"
+msgstr ""
+
+#: acme-biaquiz.php:358
+msgid "Principes de vol, portance, traînée, facteurs de charge"
+msgstr ""
+
+#: acme-biaquiz.php:362
+msgid "Connaissance des aéronefs"
+msgstr ""
+
+#: acme-biaquiz.php:363
+msgid "Structure, systèmes, motorisation, équipements"
+msgstr ""
+
+#: acme-biaquiz.php:367
+msgid "Météorologie"
+msgstr ""
+
+#: acme-biaquiz.php:368
+msgid "Masses d'air, nuages, phénomènes météorologiques"
+msgstr ""
+
+#: acme-biaquiz.php:372
+msgid "Navigation, règlementation et sécurité"
+msgstr ""
+
+#: acme-biaquiz.php:373
+msgid "Navigation, réglementation aérienne, sécurité des vols"
+msgstr ""
+
+#: acme-biaquiz.php:377
+msgid "Histoire de l'aéronautique et de l'espace"
+msgstr ""
+
+#: acme-biaquiz.php:378
+msgid "Pionniers, évolution technologique, conquête spatiale"
+msgstr ""
+
+#: acme-biaquiz.php:382
+msgid "Anglais aéronautique"
+msgstr ""
+
+#: acme-biaquiz.php:383
+msgid "Vocabulaire technique, phraséologie radio"
+msgstr ""
