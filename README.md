@@ -24,3 +24,21 @@ Le plugin fournit le shortcode `[biaquiz]` pour afficher l'interface d'entraîne
 - `quiz_id` : ID d'un quiz précis à charger directement.
 
 Par défaut, sans option, le shortcode affiche la page d'accueil du quiz et propose la liste des catégories créées dans l'administration.
+
+## Quiz Import/Export
+
+Les quiz peuvent être importés ou exportés au format CSV. Le fichier doit commencer par l'en‑tête suivante :
+
+```
+question,option1,option2,option3,option4,correct_answer,explanation
+```
+
+Le champ `correct_answer` correspond au numéro (1‑4) de la bonne réponse et chaque quiz doit comporter exactement 20 questions.
+
+Exemple de contenu CSV :
+
+```
+question,option1,option2,option3,option4,correct_answer,explanation
+"Quelle est la force qui s'oppose au mouvement d'un avion ?","La portance","La traînée","Le poids","La poussée",2,"La traînée est la force qui s'oppose au mouvement"
+"La portance est générée principalement par :","Le dessous de l'aile","Le dessus de l'aile","Les deux faces","L'hélice",2,"La portance est générée par la dépression au dessus de l'aile"
+```
