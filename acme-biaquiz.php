@@ -184,18 +184,39 @@ class ACME_BIAQuiz {
         }
         
         $questions = array();
-        foreach ($lines as $line) {
-            if (empty(trim($line))) continue;
-            
+        foreach ($lines as $index => $line) {
+            if (empty(trim($line))) {
+                continue;
+            }
+
             $data = str_getcsv($line);
-            if (count($data) >= 7) {
-                $questions[] = array(
-                    'question' => $data[0],
-                    'options' => array($data[1], $data[2], $data[3], $data[4]),
-                    'correct_answer' => intval($data[5]) - 1, // Convert to 0-based index
-                    'explanation' => $data[6]
+
+            if (count($data) !== 7) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(
+                        __('Ligne %d invalide : nombre de colonnes incorrect', 'acme-biaquiz'),
+                        $index + 2
+                    )
                 );
             }
+
+            if (!ctype_digit(trim($data[5])) || intval($data[5]) < 1 || intval($data[5]) > 4) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(
+                        __('Ligne %d invalide : la colonne correct_answer doit être un entier de 1 à 4', 'acme-biaquiz'),
+                        $index + 2
+                    )
+                );
+            }
+
+            $questions[] = array(
+                'question' => $data[0],
+                'options' => array($data[1], $data[2], $data[3], $data[4]),
+                'correct_answer' => intval($data[5]) - 1, // Convert to 0-based index
+                'explanation' => $data[6]
+            );
         }
         
         if (count($questions) !== 20) {
@@ -217,7 +238,12 @@ class ACME_BIAQuiz {
     
     private function validate_csv_header($header) {
         $expected = array('question', 'option1', 'option2', 'option3', 'option4', 'correct_answer', 'explanation');
-        return count(array_intersect($header, $expected)) === count($expected);
+
+        // Normalize header labels to lowercase to avoid case issues
+        $header = array_map('strtolower', $header);
+
+        // Ensure the header contains exactly the expected columns in order
+        return $header === $expected;
     }
     
     private function create_quiz($category, $questions) {
