@@ -99,10 +99,11 @@ class ACME_BIAQuiz {
     }
     
     public function admin_enqueue_scripts($hook) {
-        if (strpos($hook, 'biaquiz') !== false) {
+        $screen = get_current_screen();
+        if ($screen && ($screen->id === 'biaquiz_page_biaquiz-import-export' || $screen->id === 'toplevel_page_biaquiz-dashboard')) {
             wp_enqueue_script('acme-biaquiz-admin', ACME_BIAQUIZ_PLUGIN_URL . 'assets/js/biaquiz-admin.js', array('jquery'), ACME_BIAQUIZ_VERSION, true);
             wp_enqueue_style('acme-biaquiz-admin-style', ACME_BIAQUIZ_PLUGIN_URL . 'assets/css/biaquiz-admin.css', array(), ACME_BIAQUIZ_VERSION);
-            
+
             wp_localize_script('acme-biaquiz-admin', 'biaquiz_admin_ajax', array(
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('biaquiz_admin_nonce')
