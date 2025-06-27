@@ -164,7 +164,7 @@ class ACME_BIAQuiz {
         }
         
         $category = sanitize_text_field($_POST['category']);
-        $data = sanitize_textarea_field($_POST['data']);
+        $data = wp_unslash($_POST['data']);
         $format = sanitize_text_field($_POST['format']);
         
         if ($format === 'csv') {
