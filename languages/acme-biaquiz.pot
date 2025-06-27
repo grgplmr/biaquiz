@@ -435,3 +435,11 @@ msgstr ""
 #: acme-biaquiz.php:383
 msgid "Vocabulaire technique, phraséologie radio"
 msgstr ""
+
+#: acme-biaquiz.php:418
+msgid "Catégorie invalide"
+msgstr ""
+
+#: acme-biaquiz.php:423
+msgid "Catégorie introuvable"
+msgstr ""
