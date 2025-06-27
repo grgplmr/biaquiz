@@ -7,7 +7,7 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
 <div id="biaquiz-app" class="biaquiz-frontend">
     <div class="biaquiz-loading" id="biaquiz-loading">
         <div class="biaquiz-spinner"></div>
-        <p>Chargement...</p>
+        <p><?php echo esc_html__('Chargement...', 'acme-biaquiz'); ?></p>
     </div>
     
     <!-- Home View -->
@@ -16,34 +16,34 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
             <div class="biaquiz-logo">
                 <div class="biaquiz-logo-icon">✈️</div>
                 <div class="biaquiz-logo-text">
-                    <h1>ACME BIAQuiz</h1>
-                    <p>Entraînement au Brevet d'Initiation à l'Aéronautique</p>
+                    <h1><?php echo esc_html__('ACME BIAQuiz', 'acme-biaquiz'); ?></h1>
+                    <p><?php echo esc_html__('Entraînement au Brevet d\'Initiation à l\'Aéronautique', 'acme-biaquiz'); ?></p>
                 </div>
             </div>
         </div>
         
         <div class="biaquiz-intro">
-            <h2>Préparez votre BIA efficacement</h2>
-            <p>Entrainez-vous avec nos quiz thématiques interactifs. Aucune inscription requise, correction immédiate et répétition des erreurs jusqu'à la maîtrise parfaite.</p>
+            <h2><?php echo esc_html__('Préparez votre BIA efficacement', 'acme-biaquiz'); ?></h2>
+            <p><?php echo esc_html__('Entrainez-vous avec nos quiz thématiques interactifs. Aucune inscription requise, correction immédiate et répétition des erreurs jusqu\'à la maîtrise parfaite.', 'acme-biaquiz'); ?></p>
         </div>
         
         <div class="biaquiz-stats">
             <div class="biaquiz-stat">
                 <div class="biaquiz-stat-number"><?php echo count($categories); ?></div>
-                <div class="biaquiz-stat-label">Catégories disponibles</div>
+                <div class="biaquiz-stat-label"><?php echo esc_html__('Catégories disponibles', 'acme-biaquiz'); ?></div>
             </div>
             <div class="biaquiz-stat">
                 <div class="biaquiz-stat-number">60+</div>
-                <div class="biaquiz-stat-label">Questions d'entraînement</div>
+                <div class="biaquiz-stat-label"><?php echo esc_html__('Questions d\'entraînement', 'acme-biaquiz'); ?></div>
             </div>
             <div class="biaquiz-stat">
                 <div class="biaquiz-stat-number">100%</div>
-                <div class="biaquiz-stat-label">Score requis pour valider</div>
+                <div class="biaquiz-stat-label"><?php echo esc_html__('Score requis pour valider', 'acme-biaquiz'); ?></div>
             </div>
         </div>
         
         <div class="biaquiz-categories">
-            <h3>Choisissez votre domaine d'entraînement</h3>
+            <h3><?php echo esc_html__('Choisissez votre domaine d\'entraînement', 'acme-biaquiz'); ?></h3>
             <div class="biaquiz-categories-grid">
                 <?php foreach ($categories as $category): 
                     $args = array(
@@ -73,8 +73,8 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
                     <div class="biaquiz-category-icon"><?php echo $icon; ?></div>
                     <h4><?php echo esc_html($category->name); ?></h4>
                     <p><?php echo esc_html($category->description); ?></p>
-                    <div class="biaquiz-category-count"><?php echo $count; ?> quiz disponible<?php echo $count > 1 ? 's' : ''; ?></div>
-                    <div class="biaquiz-category-action">Commencer l'entraînement →</div>
+                    <div class="biaquiz-category-count"><?php echo $count; ?> <?php echo esc_html__('quiz disponible', 'acme-biaquiz'); ?><?php echo $count > 1 ? esc_html__('s', 'acme-biaquiz') : ''; ?></div>
+                    <div class="biaquiz-category-action"><?php echo esc_html__('Commencer l\'entraînement →', 'acme-biaquiz'); ?></div>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -82,21 +82,21 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
         
         <div class="biaquiz-info">
             <div class="biaquiz-info-section">
-                <h4>Comment ça marche ?</h4>
+                <h4><?php echo esc_html__('Comment ça marche ?', 'acme-biaquiz'); ?></h4>
                 <ol>
-                    <li>Choisissez une catégorie selon vos besoins de révision</li>
-                    <li>Répondez aux 20 questions du quiz sélectionné</li>
-                    <li>Reprenez les questions ratées jusqu'à obtenir 20/20</li>
+                    <li><?php echo esc_html__('Choisissez une catégorie selon vos besoins de révision', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('Répondez aux 20 questions du quiz sélectionné', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('Reprenez les questions ratées jusqu\'à obtenir 20/20', 'acme-biaquiz'); ?></li>
                 </ol>
             </div>
             <div class="biaquiz-info-section">
-                <h4>Avantages</h4>
+                <h4><?php echo esc_html__('Avantages', 'acme-biaquiz'); ?></h4>
                 <ul>
-                    <li>✅ Accès immédiat sans inscription</li>
-                    <li>✅ Correction et explication instantanées</li>
-                    <li>✅ Répétition intelligente des erreurs</li>
-                    <li>✅ Interface responsive et intuitive</li>
-                    <li>✅ Contenu officiel conforme au BIA</li>
+                    <li><?php echo esc_html__('✅ Accès immédiat sans inscription', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('✅ Correction et explication instantanées', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('✅ Répétition intelligente des erreurs', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('✅ Interface responsive et intuitive', 'acme-biaquiz'); ?></li>
+                    <li><?php echo esc_html__('✅ Contenu officiel conforme au BIA', 'acme-biaquiz'); ?></li>
                 </ul>
             </div>
         </div>
@@ -105,7 +105,7 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
     <!-- Category View -->
     <div id="biaquiz-category" class="biaquiz-view">
         <div class="biaquiz-nav">
-            <button id="back-to-home" class="biaquiz-back-btn">← Retour aux catégories</button>
+            <button id="back-to-home" class="biaquiz-back-btn">← <?php echo esc_html__('Retour aux catégories', 'acme-biaquiz'); ?></button>
         </div>
         
         <div class="biaquiz-category-header">
@@ -122,7 +122,7 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
     <!-- Quiz View -->
     <div id="biaquiz-quiz" class="biaquiz-view">
         <div class="biaquiz-quiz-header">
-            <button id="back-to-category" class="biaquiz-back-btn">← Retour</button>
+            <button id="back-to-category" class="biaquiz-back-btn">← <?php echo esc_html__('Retour', 'acme-biaquiz'); ?></button>
             <h2 id="quiz-title"></h2>
             <div class="biaquiz-score">
                 <span id="current-score">0</span>/20
@@ -134,13 +134,13 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
                 <div id="progress-fill" class="biaquiz-progress-fill"></div>
             </div>
             <div class="biaquiz-progress-text">
-                <span id="progress-text">Question 1/20</span>
-                <span id="progress-percentage">0% vers 20/20</span>
+                <span id="progress-text"><?php echo esc_html__('Question 1/20', 'acme-biaquiz'); ?></span>
+                <span id="progress-percentage">0% <?php echo esc_html__('vers 20/20', 'acme-biaquiz'); ?></span>
             </div>
         </div>
         
         <div id="review-mode-indicator" class="biaquiz-review-indicator" style="display: none;">
-            📚 Mode révision : Reprise des questions incorrectes
+            📚 <?php echo esc_html__('Mode révision : Reprise des questions incorrectes', 'acme-biaquiz'); ?>
         </div>
         
         <div class="biaquiz-question-container">
@@ -153,7 +153,7 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
             </div>
             
             <div id="question-explanation" class="biaquiz-explanation" style="display: none;">
-                <h4>Explication</h4>
+                <h4><?php echo esc_html__('Explication', 'acme-biaquiz'); ?></h4>
                 <p id="explanation-text"></p>
             </div>
             
@@ -162,8 +162,8 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
                     <span id="wrong-questions-count" class="biaquiz-wrong-count" style="display: none;"></span>
                 </div>
                 <div class="biaquiz-question-buttons">
-                    <button id="validate-answer" class="biaquiz-btn biaquiz-btn-primary" disabled>Valider</button>
-                    <button id="next-question" class="biaquiz-btn biaquiz-btn-success" style="display: none;">Question suivante</button>
+                    <button id="validate-answer" class="biaquiz-btn biaquiz-btn-primary" disabled><?php echo esc_html__('Valider', 'acme-biaquiz'); ?></button>
+                    <button id="next-question" class="biaquiz-btn biaquiz-btn-success" style="display: none;"><?php echo esc_html__('Question suivante', 'acme-biaquiz'); ?></button>
                 </div>
             </div>
         </div>
@@ -173,17 +173,17 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
     <div id="biaquiz-completion" class="biaquiz-view">
         <div class="biaquiz-completion-content">
             <div class="biaquiz-trophy">🏆</div>
-            <h2>Félicitations !</h2>
-            <p>Vous avez terminé le quiz avec un score parfait</p>
+            <h2><?php echo esc_html__('Félicitations !', 'acme-biaquiz'); ?></h2>
+            <p><?php echo esc_html__('Vous avez terminé le quiz avec un score parfait', 'acme-biaquiz'); ?></p>
             
             <div class="biaquiz-final-score">
                 <div class="biaquiz-score-number">20/20</div>
-                <div class="biaquiz-score-label">Score parfait !</div>
+                <div class="biaquiz-score-label"><?php echo esc_html__('Score parfait !', 'acme-biaquiz'); ?></div>
             </div>
             
             <div class="biaquiz-completion-actions">
-                <button id="restart-quiz" class="biaquiz-btn biaquiz-btn-primary">🔄 Recommencer</button>
-                <button id="back-to-quizzes" class="biaquiz-btn biaquiz-btn-secondary">← Retour aux quiz</button>
+                <button id="restart-quiz" class="biaquiz-btn biaquiz-btn-primary">🔄 <?php echo esc_html__('Recommencer', 'acme-biaquiz'); ?></button>
+                <button id="back-to-quizzes" class="biaquiz-btn biaquiz-btn-secondary">← <?php echo esc_html__('Retour aux quiz', 'acme-biaquiz'); ?></button>
             </div>
         </div>
     </div>
