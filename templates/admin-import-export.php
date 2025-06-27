@@ -39,8 +39,10 @@ $categories = get_terms(array('taxonomy' => 'biaquiz_category', 'hide_empty' => 
                     <tr>
                         <th scope="row"><?php echo esc_html__('Données', 'acme-biaquiz'); ?></th>
                         <td>
+                            <input type="file" id="import-file" accept=".csv,.json">
                             <textarea id="import-data" rows="10" cols="80" placeholder="<?php echo esc_attr__('Collez vos données ici...', 'acme-biaquiz'); ?>"></textarea>
                             <p class="description">
+                                <?php echo esc_html__('Vous pouvez sélectionner un fichier CSV ou JSON, ou coller les données ci-dessous.', 'acme-biaquiz'); ?><br>
                                 <?php echo esc_html__('Format CSV attendu : question,option1,option2,option3,option4,correct_answer,explanation', 'acme-biaquiz'); ?><br>
                                 <?php echo esc_html__('Le quiz doit contenir exactement 20 questions.', 'acme-biaquiz'); ?>
                             </p>
