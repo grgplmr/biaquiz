@@ -1,0 +1,279 @@
+/* ACME BIAQuiz Admin Styles */
+.biaquiz-dashboard {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.biaquiz-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.biaquiz-stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #2196f3;
+}
+
+.biaquiz-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2196f3;
+    margin-bottom: 5px;
+}
+
+.biaquiz-stat-label {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.biaquiz-categories-overview {
+    margin-bottom: 30px;
+}
+
+.biaquiz-categories-overview h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.biaquiz-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.biaquiz-category-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #4caf50;
+}
+
+.biaquiz-category-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.biaquiz-category-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.biaquiz-category-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.biaquiz-quiz-count {
+    background: #e8f5e8;
+    color: #2e7d32;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.biaquiz-quick-actions {
+    margin-bottom: 30px;
+}
+
+.biaquiz-quick-actions h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.biaquiz-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.biaquiz-action-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.biaquiz-action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-color: #2196f3;
+    text-decoration: none;
+    color: inherit;
+}
+
+.biaquiz-action-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.biaquiz-action-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.biaquiz-action-card p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.biaquiz-shortcode-info {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #ff9800;
+}
+
+.biaquiz-shortcode-info h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.biaquiz-shortcode-info p {
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.biaquiz-shortcode-info code {
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+/* Import/Export Styles */
+.biaquiz-import-export {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.biaquiz-section {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.biaquiz-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.biaquiz-import-form,
+.biaquiz-export-form {
+    max-width: 600px;
+}
+
+.biaquiz-import-form select,
+.biaquiz-export-form select,
+.biaquiz-import-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.biaquiz-import-form textarea {
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+}
+
+.biaquiz-csv-template {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #2196f3;
+}
+
+.biaquiz-csv-template h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.biaquiz-csv-template pre {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 12px;
+    line-height: 1.4;
+    border: 1px solid #e0e0e0;
+}
+
+/* Messages */
+#biaquiz-messages {
+    margin-top: 20px;
+}
+
+.biaquiz-message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.biaquiz-message.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-left: 4px solid #4caf50;
+}
+
+.biaquiz-message.error {
+    background: #ffebee;
+    color: #c62828;
+    border-left: 4px solid #f44336;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .biaquiz-stats-grid,
+    .biaquiz-categories-grid,
+    .biaquiz-actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .biaquiz-dashboard,
+    .biaquiz-import-export {
+        padding: 15px;
+    }
+    
+    .biaquiz-section {
+        padding: 20px;
+    }
+}
