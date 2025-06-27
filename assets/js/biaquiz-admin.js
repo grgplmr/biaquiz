@@ -3,7 +3,7 @@
     'use strict';
     
     $(document).ready(function() {
-        
+
         // Import Quiz
         $('#import-quiz').on('click', function() {
             const category = $('#import-category').val();
@@ -44,6 +44,25 @@
                     $('#import-quiz').prop('disabled', false).text('Importer le quiz');
                 }
             });
+        });
+
+        // Import from file
+        $('#import-file').on('change', function(e) {
+            const file = this.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                $('#import-data').val(ev.target.result);
+            };
+            reader.readAsText(file);
+
+            const ext = file.name.split('.').pop().toLowerCase();
+            if (ext === 'json') {
+                $('input[name="import-format"][value="json"]').prop('checked', true).trigger('change');
+            } else if (ext === 'csv') {
+                $('input[name="import-format"][value="csv"]').prop('checked', true).trigger('change');
+            }
         });
         
         // Export Quiz
