@@ -228,11 +228,55 @@ class ACME_BIAQuiz {
     
     private function import_json($category, $json_data) {
         $data = json_decode($json_data, true);
-        
+
         if (!$data || !isset($data['questions']) || count($data['questions']) !== 20) {
             return array('success' => false, 'message' => __('Format JSON invalide ou nombre de questions incorrect', 'acme-biaquiz'));
         }
-        
+
+        foreach ($data['questions'] as $index => $question) {
+            if (!is_array($question)
+                || !isset($question['question'])
+                || !isset($question['options'])
+                || !isset($question['correct_answer'])
+                || !isset($question['explanation'])) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(__('Question %d invalide', 'acme-biaquiz'), $index + 1)
+                );
+            }
+
+            if (!is_array($question['options']) || count($question['options']) !== 4) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(__('Question %d : nombre d\'options incorrect', 'acme-biaquiz'), $index + 1)
+                );
+            }
+
+            foreach ($question['options'] as $opt) {
+                if (!is_string($opt)) {
+                    return array(
+                        'success' => false,
+                        'message' => sprintf(__('Question %d : option invalide', 'acme-biaquiz'), $index + 1)
+                    );
+                }
+            }
+
+            if (!is_numeric($question['correct_answer'])) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(__('Question %d : réponse correcte invalide', 'acme-biaquiz'), $index + 1)
+                );
+            }
+
+            $answer = intval($question['correct_answer']);
+            if ($answer < 0 || $answer > 3) {
+                return array(
+                    'success' => false,
+                    'message' => sprintf(__('Question %d : indice de réponse hors plage', 'acme-biaquiz'), $index + 1)
+                );
+            }
+        }
+
         return $this->create_quiz($category, $data['questions']);
     }
     
